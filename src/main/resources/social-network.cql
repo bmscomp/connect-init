@@ -2,7 +2,7 @@
 // Create some sample person
 MERGE (p1:Person {name: "Richard", username: "richard"})
 MERGE (p2:Person {name: "Steven", username: "steven"})
-MERGE (p3:Person {name: "Luyc", username: "lucy"})
+MERGE (p3:Person {name: "Lucy", username: "lucy"})
 
 // Create profile pictures for.
 MERGE (p1)-[:AVATAR]->(pic1:Picture {url : "url1", date : timestamp()})

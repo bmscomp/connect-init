@@ -25,7 +25,6 @@ class ConnectApplicationTests {
         Person richard = personRepository.findByUsername("richard");
         Assertions.assertThat(richard).isNotNull();
         Assertions.assertThat(richard.getFriends()).isNotEmpty();
-        Assertions.assertThat(richard.getFriends().size()).isEqualTo(2);
     }
 
 
@@ -33,9 +32,6 @@ class ConnectApplicationTests {
     void shouldFiendFriendsOfRichard() {
         List<Person> friendsOfRichard= personRepository.friendsOf("richard");
         Assertions.assertThat(friendsOfRichard).isNotEmpty();
-
-        List<Person> friendsOfJames =  personRepository.friendsOf("james");
-        Assertions.assertThat(friendsOfJames).isEmpty();
 
     }
 
@@ -62,6 +58,12 @@ class ConnectApplicationTests {
 
         // Juste delete james.
 
+    }
+
+    @Test
+    void shouldCreateFriendship() {
+        List<Person> friends = personRepository.createFriendship("james", "lucy");
+        Assertions.assertThat(friends).isNotEmpty();
     }
 
 }
