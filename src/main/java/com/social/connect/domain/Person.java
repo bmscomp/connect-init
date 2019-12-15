@@ -1,5 +1,6 @@
 package com.social.connect.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.neo4j.ogm.annotation.*;
@@ -21,6 +22,7 @@ public class Person {
     @Relationship(type = "AVATAR")
     private Picture avatar;
 
+    @JsonIgnore
     @Relationship(type = "FRIEND", direction = Relationship.UNDIRECTED)
     private Set<Person> friends;
 
